@@ -13,12 +13,11 @@ function ShoppingContext({children}){
             axios.get("https://fakestoreapi.com/products")
                 .then((response)=>{
                     localStorage.setItem("allProducts", JSON.stringify(response.data));
-                    console.log(response.data);
-                    setAllProducts(response.data);
+                    setAllProducts(response.data.map((product)=>({...product, selected: 0})));
                 })
         }
         else{
-            setAllProducts(JSON.parse(localStorage.getItem("allProducts")));
+            setAllProducts(JSON.parse(localStorage.getItem("allProducts")).map((product)=>({...product, selected: 0})));
         }
     }
     return (

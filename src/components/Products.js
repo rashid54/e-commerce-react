@@ -2,7 +2,7 @@
 
 function Products(){
     return (
-        <div className="px-32">
+        <div className="px-28">
             
         </div>
     )
