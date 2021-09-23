@@ -23,7 +23,7 @@ function ShoppingContext({children}){
         }
     }
     return (
-        <ShopContex.Provider value={{allProducts, setProducts }}>
+        <ShopContex.Provider value={{allProducts, setAllProducts, setProducts }}>
             <ModalContext.Provider value={[cartVisible,setCartVisible]} >
                 {children}
             </ModalContext.Provider>

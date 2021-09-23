@@ -26,3 +26,17 @@ function Home(){
 }
 
 export default Home;
+
+//todo: 
+// change color
+// category
+// search
+// responsive
+// hamburger menu
+// checkout page
+// badge icon
+// description tooltip
+
+//todo:extra
+// item page
+// set hover 

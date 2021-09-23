@@ -3,7 +3,16 @@ import { ShopContex } from "../contexts/ShoppingContext";
 
 
 function CartProductCard({product}){
+    const {allProducts, setAllProducts} = useContext(ShopContex);
 
+    function setSelectedCount(value){
+        setAllProducts(allProducts.map((productx)=>{
+            if (product.id === productx.id){
+                productx.selected = value;
+            }
+            return productx;
+        }))
+    }
     return (
         <div className="mx-2 my-3 bg-yellow-200 px-3 py-1 flex flex-wrap flex-row rounded-md">
             <div className="w-full flex flex-wrap space-y-1 space-x-2">
@@ -17,11 +26,11 @@ function CartProductCard({product}){
                 </div>
             </div>
             <div className="flex w-full py-1">
-                <button className="bg-red-500 w-1/4 py-0 px-2 font-semibold rounded-md">Remove</button>
+                <button onClick={()=>setSelectedCount(0)} className="bg-red-500 w-1/4 py-0 px-2 font-semibold rounded-md">Remove</button>
                 <div className="flex space-x-3 justify-around flex-grow px-3">
                     <button className="flex-grow bg-blue-300 px-3 py-0 rounded-lg font-bold text-lg" >{product.selected}</button>
-                    <button className="bg-red-700 px-2 py-0 rounded-full" ><i className="fa fa-plus font-bold text-xl"></i></button>
-                    <button className="bg-red-700 px-2 py-0 rounded-full" ><i className="fa fa-minus font-bold text-xl"></i></button>
+                    <button onClick={()=>setSelectedCount(product.selected-1)} className="bg-red-700 px-2 py-0 rounded-full" ><i className="fa fa-minus font-bold text-xl"></i></button>
+                    <button onClick={()=>setSelectedCount(product.selected+1)} className="bg-red-700 px-2 py-0 rounded-full" ><i className="fa fa-plus font-bold text-xl"></i></button>
                     
                 </div>
             </div>

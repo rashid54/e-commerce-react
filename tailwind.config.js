@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'slide-in': 'slide-in 0.3s ease-out',
-        'slide-out': 'slide-out 0.3s ease-in',
+        'slide-in': 'slide-in 0.2s ease-out',
+        'slide-out': 'slide-out 0.2s ease-in',
         'fade-out': 'fade-out 0.3s ',
       },
       keyframes: {

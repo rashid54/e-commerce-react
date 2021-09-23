@@ -10,7 +10,7 @@ function CartSidebar(){
 
     return (
         <React.Fragment>
-            <div className={`${cartVisible?"":"hidden"} fixed inset-0 bg-red-400 bg-opacity-90 h-full w-full`}></div>
+            <div onClick={()=>setCartVisible(false)} className={`${cartVisible?"":"hidden"} fixed inset-0 bg-red-400 bg-opacity-90 h-full w-full`}></div>
             <div className={`${(cartVisible)?"animate-slide-in":(animateSliding?"animate-slide-out translate-x-full":"translate-x-full")} transition transform flex flex-col h-full w-2/5 bg-white fixed right-0 top-0`}>
                 <div className="bg-night-dark-100 h-1/12 px-2 items-center flex">
                     <h6 className="text-night-light-600 font-bold text-3xl flex-grow bg-night-dark-200 px-2 py-1 mx-2 rounded-md">Shopping Cart</h6>

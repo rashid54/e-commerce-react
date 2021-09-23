@@ -1,6 +1,18 @@
+import { useContext } from "react";
+import { ShopContex } from "../contexts/ShoppingContext";
 
 
 function ProductCard({product}){
+    const {allProducts, setAllProducts} = useContext(ShopContex);
+
+    function setSelectedCount(value){
+        setAllProducts(allProducts.map((productx)=>{
+            if (product.id === productx.id){
+                productx.selected = value;
+            }
+            return productx;
+        }))
+    }
     return (
         <div className="p-3 space-y-3 flex flex-wrap justify-center h-full rounded-2xl bg-gray-500">
             <div className="relative w-full pb-110p">
@@ -18,12 +30,12 @@ function ProductCard({product}){
                 {
                     product.selected?(
                         <div className="space-x-3 flex flex-wrap justify-center items-center">
-                            <button className="bg-red-700 px-3 py-1 rounded-full" ><i className="fa fa-plus font-bold text-xl"></i></button>
+                            <button onClick={()=>setSelectedCount(product.selected-1)} className="bg-red-700 px-3 py-1 rounded-full" ><i className="fa fa-minus font-bold text-xl"></i></button>
                             <button className="bg-blue-300 px-3 py-0 rounded-lg font-bold text-2xl" >{product.selected}</button>
-                            <button className="bg-red-700 px-3 py-1 rounded-full" ><i className="fa fa-minus font-bold text-xl"></i></button>
+                            <button onClick={()=>setSelectedCount(product.selected+1)} className="bg-red-700 px-3 py-1 rounded-full" ><i className="fa fa-plus font-bold text-xl"></i></button>
                         </div>
                     ):(
-                        <button className="p-2 bg-red-500 w-full rounded-lg font-semibold"><i className="fa fa-cart-plus"></i> Add To Cart</button>
+                        <button onClick={()=>setSelectedCount(product.selected+1)} className="p-2 bg-red-500 w-full rounded-lg font-semibold"><i className="fa fa-cart-plus"></i> Add To Cart</button>
                     )
                 }
             </div>
