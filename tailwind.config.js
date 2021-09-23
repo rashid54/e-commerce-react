@@ -3,6 +3,28 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      animation: {
+        'slide-in': 'slide-in 0.3s ease-out',
+        'slide-out': 'slide-out 0.3s ease-in',
+      },
+      keyframes: {
+        'slide-in': {
+          from: {
+            transform: 'translateX(100%)',
+          },
+          to: {
+            transform: 'translateX(0%)',
+          },
+        },
+        'slide-out': {
+          from: {
+            transform: 'translateX(0%)',
+          },
+          to: {
+            transform: 'translateX(100%)',
+          },
+        },
+      },
       spacing: {
         '1/2': '50%',
         '1/3': '33.333333%',

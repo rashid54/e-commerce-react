@@ -3,9 +3,11 @@ const axios = require('axios').default
 
 
 export const ShopContex = React.createContext();
+export const ModalContext = React.createContext();
 
 function ShoppingContext({children}){
     const [allProducts,setAllProducts] = useState([]);
+    const [cartVisible,setCartVisible] = useState(false);
 
     useEffect(setProducts, [])
     function setProducts(){
@@ -22,7 +24,9 @@ function ShoppingContext({children}){
     }
     return (
         <ShopContex.Provider value={{allProducts, setProducts }}>
-            {children}
+            <ModalContext.Provider value={[cartVisible,setCartVisible]} >
+                {children}
+            </ModalContext.Provider>
         </ShopContex.Provider>
     )
 }
