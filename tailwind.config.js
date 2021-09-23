@@ -6,6 +6,7 @@ module.exports = {
       animation: {
         'slide-in': 'slide-in 0.3s ease-out',
         'slide-out': 'slide-out 0.3s ease-in',
+        'fade-out': 'fade-out 0.3s ',
       },
       keyframes: {
         'slide-in': {
@@ -24,6 +25,17 @@ module.exports = {
             transform: 'translateX(100%)',
           },
         },
+        'fade-out': {
+          '0%': {
+            opacity: 0.9,
+          },
+          '90%': {
+            opacity: 0.0,
+          },
+          '100%': {
+            opacity: 0.0,
+          }
+        }
       },
       spacing: {
         '1/2': '50%',

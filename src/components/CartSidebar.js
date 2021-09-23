@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ModalContext, ShopContex } from "../contexts/ShoppingContext";
 import CartProductCard from "./CartProductCard";
 
@@ -6,13 +6,15 @@ import CartProductCard from "./CartProductCard";
 function CartSidebar(){
     const {allProducts} = useContext(ShopContex);
     const [cartVisible,setCartVisible] = useContext(ModalContext);
+    const [animateSliding, setAnimateSliding] = useState(false);
+
     return (
         <React.Fragment>
             <div className={`${cartVisible?"":"hidden"} fixed inset-0 bg-red-400 bg-opacity-90 h-full w-full`}></div>
-            <div className={`${cartVisible?"animate-slide-in":"animate-slide-out translate-x-full"} transition transform flex flex-col h-full w-2/5 bg-white fixed right-0 top-0`}>
+            <div className={`${(cartVisible)?"animate-slide-in":(animateSliding?"animate-slide-out translate-x-full":"translate-x-full")} transition transform flex flex-col h-full w-2/5 bg-white fixed right-0 top-0`}>
                 <div className="bg-night-dark-100 h-1/12 px-2 items-center flex">
                     <h6 className="text-night-light-600 font-bold text-3xl flex-grow bg-night-dark-200 px-2 py-1 mx-2 rounded-md">Shopping Cart</h6>
-                    <button onClick={()=>setCartVisible(false)}className="bg-night-light-600 px-3 py-1 mx-2 rounded-full" ><i className="fa fa-plus transform rotate-45 font-medium text-xl text-night-dark-100"></i></button>
+                    <button onClick={()=>{setCartVisible(false);setAnimateSliding(true)}} className="bg-night-light-600 px-3 py-1 mx-2 rounded-full" ><i className="fa fa-plus transform rotate-45 font-medium text-xl text-night-dark-100"></i></button>
                 </div>
                 <div className="bg-red-500 flex-grow">
                     {
