@@ -5,7 +5,7 @@ const axios = require('axios').default
 export const ShopContex = React.createContext();
 
 function ShoppingContext({children}){
-    const [allProducts,setAllProducts] = useState();
+    const [allProducts,setAllProducts] = useState([]);
 
     useEffect(setProducts, [])
     function setProducts(){
