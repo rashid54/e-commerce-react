@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 
 
 function Products(){
-    const {allProducts, setProducts} = useContext(ShopContex);
+    const {allProducts} = useContext(ShopContex);
     const [selectedCategory, setSelectedCategory] = useState("All Products");
     const [searchText, setSearchText] = useState("");
 
