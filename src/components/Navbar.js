@@ -11,7 +11,7 @@ function Navbar(){
 
     const siteLogo = "https://freevector-images.s3.amazonaws.com/uploads/vector/preview/36682/36682.png";
     return (
-        <div className={`px-12 lg:px-14 xl:px-20 py-5 overflow-y-hidden flex items-start md:items-center bg-gradient-to-tr from-night-light-100 to-neon1-light-300 fixed top-0 w-full z-10 md:h-24 transform ease-linear duration-300 transition-all ${isHamMenuOpen?"max-h-60":"max-h-20"}`}>
+        <div className={`px-6 sm:px-12 lg:px-14 xl:px-20 py-5 overflow-y-hidden flex items-start md:items-center bg-gradient-to-tr from-night-light-100 to-neon1-light-300 fixed top-0 w-full z-10 md:h-24 transform ease-linear duration-300 transition-all ${isHamMenuOpen?"max-h-60":"max-h-20"}`}>
             <div className="flex flex-wrap items-center flex-grow">
                 <div className="md:hidden mr-5 transition transform hover:scale-105 hover:bg-opacity-80 text-night-light-100 bg-night-dark-100 p-2 rounded-lg" onClick={()=>setIsHamMenuOpen(!isHamMenuOpen)}>
                     {
