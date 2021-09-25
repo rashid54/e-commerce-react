@@ -6,7 +6,7 @@ import CartProductCard from "./CartProductCard";
 
 function CartSidebar(){
     const {allProducts,setAllProducts} = useContext(ShopContex);
-    const [cartVisible,setCartVisible] = useContext(ModalContext);
+    const {cartVisible,setCartVisible} = useContext(ModalContext);
     const history = useHistory();
 
     return (
