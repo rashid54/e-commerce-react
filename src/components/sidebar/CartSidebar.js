@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { ModalContext, ShopContex } from "../contexts/ShoppingContext";
+import { ModalContext, ShopContex } from "../../contexts/ShoppingContext";
 import CartProductCard from "./CartProductCard";
 
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { ShopContex } from "../contexts/ShoppingContext";
+import { ShopContex } from "../../contexts/ShoppingContext";
 
 
 function CheckoutPage() {

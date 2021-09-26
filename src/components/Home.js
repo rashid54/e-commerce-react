@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ShoppingContext from "../contexts/ShoppingContext";
-import CartSidebar from "./CartSidebar";
-import CheckoutPage from "./CheckoutPage";
-import Footer from "./Footer";
+import CartSidebar from "./sidebar/CartSidebar";
+import CheckoutPage from "./pages/CheckoutPage";
+import Footer from "./footer/Footer";
 import Navbar from "./Navbar";
-import NotFoundPage from "./NotFoundPage";
-import Products from "./Products";
+import NotFoundPage from "./pages/NotFoundPage";
+import Products from "./pages/Products";
+import PurchaseSuccess from "./pages/PurchaseSuccess";
 
 
 
@@ -29,7 +30,7 @@ function Home() {
                     </Route>
                     <Route path="/success/" >
                         <Navbar />
-                        <NotFoundPage />
+                        <PurchaseSuccess />
                         <Footer />
                         <CartSidebar />
                     </Route>
