@@ -27,6 +27,12 @@ function Home() {
                         <Footer />
                         <CartSidebar />
                     </Route>
+                    <Route path="/success/" >
+                        <Navbar />
+                        <NotFoundPage />
+                        <Footer />
+                        <CartSidebar />
+                    </Route>
                     <Route path="*" >
                         <Navbar />
                         <NotFoundPage />

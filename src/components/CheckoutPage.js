@@ -9,7 +9,7 @@ function CheckoutPage() {
 
     function handleSubmit() {
         setAllProducts(allProducts.map((product) => ({ ...product, selected: 0 })));
-        history.push('/')
+        history.push('/success/')
     }
     return (
         <div className="pt-24 bg-gradient-to-br from-neon1-light-1000 to-neon1-light-500 w-full h-screen">
