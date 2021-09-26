@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShopContex } from "../contexts/ShoppingContext";
+import { ShopContex } from "../../contexts/ShoppingContext";
 
 
 function ProductCard({ product: { id, image, title, category, price, rating, selected: selectedCount } }) {

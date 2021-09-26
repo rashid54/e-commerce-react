@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ModalContext, ShopContex } from "../../contexts/ShoppingContext";
-import CartProductCard from "./CartProductCard";
+import CartProductCard from "../productCards/CartProductCard";
 
 
 function CartSidebar() {

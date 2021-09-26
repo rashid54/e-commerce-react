@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
 import { ShopContex } from "../../contexts/ShoppingContext"
-import ProductCard from "./ProductCard";
+import ProductCard from "../productCards/ProductCard";
 
 
 function Products() {

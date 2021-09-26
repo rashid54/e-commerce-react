@@ -4,11 +4,10 @@ import ShoppingContext from "../contexts/ShoppingContext";
 import CartSidebar from "./sidebar/CartSidebar";
 import CheckoutPage from "./pages/CheckoutPage";
 import Footer from "./footer/Footer";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 import NotFoundPage from "./pages/NotFoundPage";
 import Products from "./pages/Products";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
-
 
 
 function Home() {

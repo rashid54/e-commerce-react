@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
-import { ModalContext, ShopContex } from '../contexts/ShoppingContext';
+import { ModalContext, ShopContex } from '../../contexts/ShoppingContext';
 
 
 function Navbar() {
