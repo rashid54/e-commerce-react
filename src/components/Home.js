@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ShoppingContext from "../contexts/ShoppingContext";
 import CartSidebar from "./CartSidebar";
 import CheckoutPage from "./CheckoutPage";
@@ -10,25 +10,25 @@ import Products from "./Products";
 
 
 
-function Home(){
+function Home() {
     return (
         <ShoppingContext>
             <Router>
                 <Switch>
                     <Route exact path="/" >
-                        <Navbar /> 
-                        <Products/>
+                        <Navbar />
+                        <Products />
                         <Footer />
                         <CartSidebar />
                     </Route>
                     <Route exact path="/checkout/" >
-                        <Navbar /> 
+                        <Navbar />
                         <CheckoutPage />
                         <Footer />
                         <CartSidebar />
                     </Route>
                     <Route path="*" >
-                        <Navbar /> 
+                        <Navbar />
                         <NotFoundPage />
                         <Footer />
                         <CartSidebar />
@@ -40,21 +40,3 @@ function Home(){
 }
 
 export default Home;
-
-//todo: 
-// #####################change color 
-// ######################category
-// ######################search
-// ######################responsive
-// hamburger menu
-// checkout page
-// ######################badge icon 
-// description tooltip
-
-//todo:extra
-// item page
-// set hover 
-
-// destructure objects
-// fix naming conventions
-// use localstorage

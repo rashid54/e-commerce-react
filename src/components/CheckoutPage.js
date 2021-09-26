@@ -3,19 +3,18 @@ import { useHistory } from "react-router-dom";
 import { ShopContex } from "../contexts/ShoppingContext";
 
 
-
-function CheckoutPage(){
-    const {allProducts, setAllProducts} = useContext(ShopContex);
+function CheckoutPage() {
+    const { allProducts, setAllProducts } = useContext(ShopContex);
     const history = useHistory();
 
-    function handleSubmit(){
-        setAllProducts(allProducts.map((product)=>({...product, selected: 0})));
+    function handleSubmit() {
+        setAllProducts(allProducts.map((product) => ({ ...product, selected: 0 })));
         history.push('/')
     }
     return (
         <div className="pt-24 bg-gradient-to-br from-neon1-light-1000 to-neon1-light-500 w-full h-screen">
             {
-                allProducts.some(product=>product.selected>0)?(
+                allProducts.some(product => product.selected > 0) ? (
                     <div className="w-5/6 md:w-1/2 mx-auto bg-neon1-light-600 rounded-md my-20 p-8">
                         <form className="flex flex-col space-y-5" onSubmit={handleSubmit}>
                             <input className="focus:bg-white hover:scale-102 transition transform p-2 text-gray-900 placeholder-gray-500 rounded-md bg-gray-200 border border-gray-200 focus:border-gray-500 outline-none focus:outline-none" type="text" name="fname" placeholder="First Name" />
@@ -24,21 +23,21 @@ function CheckoutPage(){
                             <textarea className="focus:bg-white resize-none hover:scale-102 transition transform p-2 text-gray-900 placeholder-gray-500 rounded-md bg-gray-200 border border-gray-200 focus:border-gray-500 outline-none focus:outline-none" name="address" placeholder="Address" />
                             <div className="flex py-1 px-4 bg-gray-50 rounded-md mx-2">
                                 <h4 className="font-semibold text-base sm:text-lg">Total Items: </h4>
-                                <h6 className="flex-grow text-right w-1/2 text-base sm:text-lg font-bold">{allProducts.reduce((totalSelected,product)=>totalSelected+product.selected,0)}</h6>
+                                <h6 className="flex-grow text-right w-1/2 text-base sm:text-lg font-bold">{allProducts.reduce((totalSelected, product) => totalSelected + product.selected, 0)}</h6>
                             </div>
                             <div className="flex py-1 px-4 bg-gray-50 rounded-md mx-2">
                                 <h4 className="font-semibold text-base sm:text-lg">Total Cost: </h4>
-                                <h6 className="flex-grow text-right w-1/2 text-base sm:text-lg font-bold">{allProducts.reduce((totalCost,product)=>totalCost+(product.selected*product.price),0).toFixed(2)}<i className="fa fa-dollar text-base pl-2"></i></h6>
+                                <h6 className="flex-grow text-right w-1/2 text-base sm:text-lg font-bold">{allProducts.reduce((totalCost, product) => totalCost + (product.selected * product.price), 0).toFixed(2)}<i className="fa fa-dollar text-base pl-2"></i></h6>
                             </div>
                             <button className="bg-green-500 p-3 rounded-lg transform transition hover:bg-green-600 hover:scale-105 font-semibold text-lg" type="submit" >Checkout</button>
-                            <button className="bg-red-300 p-3 rounded-lg transform transition hover:bg-red-200 hover:scale-105 font-semibold text-lg" onClick={()=>history.push('/')}>Cancel</button>
+                            <button className="bg-red-300 p-3 rounded-lg transform transition hover:bg-red-200 hover:scale-105 font-semibold text-lg" onClick={() => history.push('/')}>Cancel</button>
                         </form>
                     </div>
-                ):(
+                ) : (
                     <div className="flex flex-col w-5/6 md:w-1/2 mx-auto space-y-4 bg-neon1-light-600 rounded-md my-20 p-8">
                         <h4 className="text-blue-500 font-bold text-2xl text-center">No Product in Cart</h4>
                         <p className="font-medium text-lg font-serif">No product is added to cart. Please add the products you want to but to cart and visit this page again.</p>
-                        <button onClick={()=>history.push('/')} className="bg-blue-500 text-blue-200 p-2 rounded-lg font-semibold text-xl">View Products</button>
+                        <button onClick={() => history.push('/')} className="bg-blue-500 text-blue-200 p-2 rounded-lg font-semibold text-xl">View Products</button>
                     </div>
                 )
             }
