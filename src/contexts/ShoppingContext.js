@@ -6,24 +6,35 @@ export const ShopContex = React.createContext();
 export const ModalContext = React.createContext();
 
 function ShoppingContext({ children }) {
-    const [allProducts, setAllProducts] = useState([]);
+    const [cartProducts, setCartProducts] = useState({});
     const [cartVisible, setCartVisible] = useState(false);
 
-    useEffect(setProducts, [])
-    function setProducts() {
-        if (!localStorage.getItem("allProducts")) {
+    useEffect(setAllProducts, [])
+
+    function getCategories(allProducts) {
+        return allProducts.reduce((categories, product) => {
+            return categories.some(category => category === product.category) ? categories : [...categories, product.category]
+        }, []);
+    }
+    
+    function setAllProducts() {
+        if ((!localStorage.getItem("allProducts"))||(!localStorage.getItem("categories"))) {
             axios.get("https://fakestoreapi.com/products")
                 .then((response) => {
-                    localStorage.setItem("allProducts", JSON.stringify(response.data));
-                    setAllProducts(response.data.map((product) => ({ ...product, selected: 0 })));
+                    const allProducts = response.data;
+                    const categories = getCategories(allProducts);
+
+                    localStorage.setItem("allProducts", JSON.stringify(allProducts));
+                    localStorage.setItem("categories", JSON.stringify(categories)); 
+                    setCartProducts({});
                 })
-        }
-        else {
-            setAllProducts(JSON.parse(localStorage.getItem("allProducts")).map((product) => ({ ...product, selected: 0 })));
+                .catch(error=>{
+                    
+                })
         }
     }
     return (
-        <ShopContex.Provider value={{ allProducts, setAllProducts, setProducts }}>
+        <ShopContex.Provider value={{ cartProducts, setCartProducts}}>
             <ModalContext.Provider value={{ cartVisible, setCartVisible }} >
                 {children}
             </ModalContext.Provider>

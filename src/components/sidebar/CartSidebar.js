@@ -5,7 +5,7 @@ import CartProductCard from "../productCards/CartProductCard";
 
 
 function CartSidebar() {
-    const { allProducts, setAllProducts } = useContext(ShopContex);
+    const {cartProducts, setCartProducts} = useContext(ShopContex);
     const { cartVisible, setCartVisible } = useContext(ModalContext);
     const history = useHistory();
 
@@ -22,7 +22,7 @@ function CartSidebar() {
                 </div>
                 <div className="overflow-y-auto flex-grow">
                     {
-                        allProducts.filter((product) => product.selected > 0).map((product) => <CartProductCard product={product} />)
+                        Object.values(cartProducts).map((product) => <CartProductCard product={product} />)
                     }
                 </div>
                 <hr className="w-1/2 my-1 border-dotted border-t-8 mx-auto border-gray-400" />
@@ -30,9 +30,9 @@ function CartSidebar() {
                     <button className="transition transform hover:scale-102 hover:bg-opacity-80 font-semibold text-lg sm:text-lg bg-neon1-light-100 mx-2 rounded-lg py-3" onClick={() => { setCartVisible(false); history.push('/checkout/') }}>Proceed To Checkout</button>
                     <div className="flex py-1 px-4 bg-gray-300 rounded-md mx-2">
                         <h4 className="font-semibold text-base sm:text-lg">Total Cost: </h4>
-                        <h6 className="flex-grow text-right w-1/2 text-base sm:text-lg font-bold">{allProducts.reduce((totalCost, product) => totalCost + (product.selected * product.price), 0).toFixed(2)}<i className="fa fa-dollar text-base pl-2"></i></h6>
+                        <h6 className="flex-grow text-right w-1/2 text-base sm:text-lg font-bold">{Object.values(cartProducts).reduce((totalCost, product) => totalCost + (product.count * product.price), 0).toFixed(2)}<i className="fa fa-dollar text-base pl-2"></i></h6>
                     </div>
-                    <button className="transition transform hover:scale-102 hover:bg-opacity-90 font-medium text-base sm:text-lg bg-red-500 mx-2 rounded-lg py-1" onClick={e => setAllProducts(allProducts.map(product => ({ ...product, selected: 0 })))}>Remove All</button>
+                    <button className="transition transform hover:scale-102 hover:bg-opacity-90 font-medium text-base sm:text-lg bg-red-500 mx-2 rounded-lg py-1" onClick={e => setCartProducts({})}>Remove All</button>
                 </div>
             </div>
         </React.Fragment>

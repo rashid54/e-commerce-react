@@ -4,21 +4,14 @@ import ProductCard from "../productCards/ProductCard";
 
 
 function Products() {
-    const { allProducts } = useContext(ShopContex);
+    const allProducts = JSON.parse(localStorage.getItem("allProducts"));
+    const categories = JSON.parse(localStorage.getItem("categories"));
+    const {cartProducts} = useContext(ShopContex);
     const [selectedCategory, setSelectedCategory] = useState("All Products");
     const [searchText, setSearchText] = useState("");
 
-    function getCategories() {
-        return allProducts.reduce((categories, product) => {
-            return categories.some(category => category === product.category) ? categories : [...categories, product.category]
-        }, []);
-    }
-
-    function getSearchRegex() {
-        return RegExp(`.*${searchText.toLowerCase().split('').join('.*')}.*`)
-    }
-    return (allProducts.length) ? (
-        <div className="pt-24 bg-gradient-to-br from-neon1-light-1000 to-neon1-light-500 px-12 sm:px-28 md:px-8 lg:px-16 xl:px-32">
+    return (allProducts) ? (
+        <div className="pt-24 bg-gradient-to-br bg-opacity-10 from-neon1-light-1000 to-neon1-light-500 px-12 sm:px-28 md:px-8 lg:px-16 xl:px-32">
             <div className="flex-wrap flex justify-between w-full px-10 my-2 md:space-y-0 space-y-2">
                 <div className="inline-block relative 2xl:w-2/5 xl:w-2/5 md:w-2/5 w-full transition transform hover:scale-105 px-2">
                     <select
@@ -28,7 +21,7 @@ function Products() {
                     >
                         <option value="All Products">All Products</option>
                         {
-                            getCategories().map(category => <option className="capitalize" value={category} key={category}>{category}</option>)
+                            categories.map(category => <option className="capitalize" value={category} key={category}>{category}</option>)
                         }
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center px-2 text-gray-700">
@@ -55,7 +48,7 @@ function Products() {
             <div className="flex flex-wrap justify-start items-stretch">
                 {
                     allProducts.filter(product => ((product.category === selectedCategory) || (selectedCategory === "All Products")))
-                        .filter(product => product.title.toLowerCase().match(getSearchRegex()))
+                        .filter(product => product.title.toLowerCase().includes(searchText.toLowerCase()))
                         .map((product) => {
                             return (
                                 <div key={product.id} className="2xl:w-1/4 xl:w-1/3 md:w-1/2 w-full py-2 px-4 lg:px-10 xl:py-4 xl:px-6 ">
