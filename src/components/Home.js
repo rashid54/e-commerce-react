@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ShoppingContext from "../contexts/ShoppingContext";
-import CartSidebar from "./sidebar/CartSidebar";
+import CartSidebar from "./modals/CartSidebar";
 import CheckoutPage from "./pages/CheckoutPage";
 import Footer from "./footer/Footer";
 import Navbar from "./navbar/Navbar";

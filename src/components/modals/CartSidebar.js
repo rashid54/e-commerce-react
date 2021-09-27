@@ -5,7 +5,8 @@ import CartProductCard from "../productCards/CartProductCard";
 
 
 function CartSidebar() {
-    const {cartProducts, setCartProducts} = useContext(ShopContex);
+    const {cartChanges, setCartChanges} = useContext(ShopContex);
+    const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     const { cartVisible, setCartVisible } = useContext(ModalContext);
     const history = useHistory();
 
