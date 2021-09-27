@@ -26,10 +26,9 @@ function ShoppingContext({ children }) {
         }, []);
     }
     
-    useEffect(setAllProducts, []); // eslint-disable-line react-hooks/exhaustive-deps
+    useEffect(setAllProducts, []); // eslint-disable-line
 
     function setAllProducts() {
-        console.log("all products");
         if ((!localStorage.getItem("allProducts"))||(!localStorage.getItem("categories"))) {
             axios.get("https://fakestoreapi.com/products")
                 .then((response) => {
