@@ -8,6 +8,7 @@ import Navbar from "./navbar/Navbar";
 import NotFoundPage from "./pages/NotFoundPage";
 import Products from "./pages/Products";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
+import PageTemplate from "./PageTemplate";
 
 
 function Home() {
@@ -16,28 +17,24 @@ function Home() {
             <Router>
                 <Switch>
                     <Route exact path="/" >
-                        <Navbar />
-                        <Products />
-                        <Footer />
-                        <CartSidebar />
+                        <PageTemplate>
+                            <Products />
+                        </PageTemplate>
                     </Route>
                     <Route exact path="/checkout/" >
-                        <Navbar />
-                        <CheckoutPage />
-                        <Footer />
-                        <CartSidebar />
+                        <PageTemplate>
+                            <CheckoutPage />
+                        </PageTemplate>
                     </Route>
                     <Route path="/success/" >
-                        <Navbar />
-                        <PurchaseSuccess />
-                        <Footer />
-                        <CartSidebar />
+                        <PageTemplate>
+                            <PurchaseSuccess />
+                        </PageTemplate>
                     </Route>
                     <Route path="*" >
-                        <Navbar />
-                        <NotFoundPage />
-                        <Footer />
-                        <CartSidebar />
+                        <PageTemplate>    
+                            <NotFoundPage />
+                        </PageTemplate>
                     </Route>
                 </Switch>
             </Router>

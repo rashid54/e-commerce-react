@@ -32,7 +32,7 @@ function ProductCard({ product: { id, image, title, category, price, rating} }) 
                     )
                 }
             </div>
-            <h4 className="bg-neon1-light-1000 px-2 rounded-lg font-bold text-lg text-center w-full">{title}</h4>
+            <h4 className="bg-neon1-light-1000 px-2 rounded-lg font-bold text-lg text-center w-full h-14 overflow-hidden whitespace-pre-wrap overflow-ellipsis">{title}</h4>
         </div>
     )
 }
