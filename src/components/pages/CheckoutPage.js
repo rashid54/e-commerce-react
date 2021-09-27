@@ -4,7 +4,8 @@ import { ShopContex } from "../../contexts/ShoppingContext";
 
 
 function CheckoutPage() {
-    const { cartProducts, setCartProducts } = useContext(ShopContex);
+    const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    const [setCartProducts] = useContext(ShopContex);
     const history = useHistory();
 
     function handleSubmit() {

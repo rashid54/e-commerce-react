@@ -6,7 +6,7 @@ import ProductCard from "../productCards/ProductCard";
 function Products() {
     const allProducts = JSON.parse(localStorage.getItem("allProducts"));
     const categories = JSON.parse(localStorage.getItem("categories"));
-    const {cartProducts} = useContext(ShopContex);
+    const [_setCartProducts] = useContext(ShopContex);
     const [selectedCategory, setSelectedCategory] = useState("All Products");
     const [searchText, setSearchText] = useState("");
 

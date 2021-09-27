@@ -4,7 +4,8 @@ import { ModalContext, ShopContex } from '../../contexts/ShoppingContext';
 
 
 function Navbar() {
-    const {cartProducts} = useContext(ShopContex);
+    const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    const [_setCartProducts] = useContext(ShopContex);
     const { setCartVisible } = useContext(ModalContext);
     const [isHamMenuOpen, setIsHamMenuOpen] = useState(false);
     const history = useHistory();

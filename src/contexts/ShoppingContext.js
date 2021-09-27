@@ -6,10 +6,17 @@ export const ShopContex = React.createContext();
 export const ModalContext = React.createContext();
 
 function ShoppingContext({ children }) {
-    const [cartProducts, setCartProducts] = useState({});
+    const [cartChanges, setCartChanges] = useState(true);
     const [cartVisible, setCartVisible] = useState(false);
 
-    useEffect(setAllProducts, [])
+    if(!localStorage.getItem("cartProducts")){
+        localStorage.setItem("cartProducts", "{}")
+    }
+
+    function setCartProducts(cartProducts){
+        localStorage.setItem("cartProducts",JSON.stringify(cartProducts));
+        setCartChanges(!cartChanges);
+    }
 
     function getCategories(allProducts) {
         return allProducts.reduce((categories, product) => {
@@ -17,6 +24,8 @@ function ShoppingContext({ children }) {
         }, []);
     }
     
+    useEffect(setAllProducts, []);
+
     function setAllProducts() {
         if ((!localStorage.getItem("allProducts"))||(!localStorage.getItem("categories"))) {
             axios.get("https://fakestoreapi.com/products")
@@ -26,15 +35,16 @@ function ShoppingContext({ children }) {
 
                     localStorage.setItem("allProducts", JSON.stringify(allProducts));
                     localStorage.setItem("categories", JSON.stringify(categories)); 
-                    setCartProducts({});
+                    setCartChanges(!cartChanges);
                 })
                 .catch(error=>{
                     
                 })
         }
     }
+
     return (
-        <ShopContex.Provider value={{ cartProducts, setCartProducts}}>
+        <ShopContex.Provider value={[setCartProducts]}>
             <ModalContext.Provider value={{ cartVisible, setCartVisible }} >
                 {children}
             </ModalContext.Provider>

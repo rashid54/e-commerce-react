@@ -5,8 +5,8 @@ import CartProductCard from "../productCards/CartProductCard";
 
 
 function CartSidebar() {
-    const {cartChanges, setCartChanges} = useContext(ShopContex);
     const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    const [setCartProducts] = useContext(ShopContex);
     const { cartVisible, setCartVisible } = useContext(ModalContext);
     const history = useHistory();
 
@@ -23,7 +23,7 @@ function CartSidebar() {
                 </div>
                 <div className="overflow-y-auto flex-grow">
                     {
-                        Object.values(cartProducts).map((product) => <CartProductCard product={product} />)
+                        Object.values(cartProducts).map((product) => <CartProductCard key={product.id} product={product} />)
                     }
                 </div>
                 <hr className="w-1/2 my-1 border-dotted border-t-8 mx-auto border-gray-400" />
