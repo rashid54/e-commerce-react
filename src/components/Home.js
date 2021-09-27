@@ -8,6 +8,7 @@ import PurchaseSuccess from "./pages/PurchaseSuccess";
 import PageTemplate from "./PageTemplate";
 import AboutUs from "./pages/AboutUs";
 import Contacts from "./pages/Contacts";
+import ErrorPage from "./pages/ErrorPage";
 
 
 function Home() {
@@ -38,6 +39,11 @@ function Home() {
                     <Route path="/contacts/" >
                         <PageTemplate>
                             <Contacts />
+                        </PageTemplate>
+                    </Route>
+                    <Route path="/error/" >
+                        <PageTemplate>
+                            <ErrorPage />
                         </PageTemplate>
                     </Route>
                     <Route path="*" >

@@ -5,7 +5,7 @@ import { ModalContext, ShopContex } from '../../contexts/ShoppingContext';
 
 function Navbar() {
     const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-    const [_setCartProducts] = useContext(ShopContex);
+    const [ _setCartProducts] = useContext(ShopContex); //eslint-disable-line
     const { setCartVisible } = useContext(ModalContext);
     const [isHamMenuOpen, setIsHamMenuOpen] = useState(false);
     const history = useHistory();

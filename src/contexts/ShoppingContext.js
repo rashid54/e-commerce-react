@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router";
 const axios = require('axios').default
 
 
@@ -6,6 +7,7 @@ export const ShopContex = React.createContext();
 export const ModalContext = React.createContext();
 
 function ShoppingContext({ children }) {
+    const history = useHistory()
     const [cartChanges, setCartChanges] = useState(true);
     const [cartVisible, setCartVisible] = useState(false);
 
@@ -24,9 +26,10 @@ function ShoppingContext({ children }) {
         }, []);
     }
     
-    useEffect(setAllProducts, []);
+    useEffect(setAllProducts, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     function setAllProducts() {
+        console.log("all products");
         if ((!localStorage.getItem("allProducts"))||(!localStorage.getItem("categories"))) {
             axios.get("https://fakestoreapi.com/products")
                 .then((response) => {
@@ -38,7 +41,7 @@ function ShoppingContext({ children }) {
                     setCartChanges(!cartChanges);
                 })
                 .catch(error=>{
-                    
+                    history.push("/error/");
                 })
         }
     }
