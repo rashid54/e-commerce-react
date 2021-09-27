@@ -11,7 +11,7 @@ function Products() {
     const [searchText, setSearchText] = useState("");
 
     return (allProducts) ? (
-        <div className="min-h-screen pt-24 bg-gradient-to-br bg-opacity-10 from-neon1-light-1000 to-neon1-light-500 px-12 sm:px-28 md:px-8 lg:px-16 xl:px-32">
+        <div className="min-h-screen pt-24 bg-gray-100 px-12 sm:px-28 md:px-8 lg:px-16 xl:px-32">
             <div className="flex-wrap flex justify-between w-full px-10 my-2 md:space-y-0 space-y-2">
                 <div className="inline-block relative 2xl:w-2/5 xl:w-2/5 md:w-2/5 w-full transition transform hover:scale-105 px-2">
                     <select

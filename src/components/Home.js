@@ -9,6 +9,8 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Products from "./pages/Products";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
 import PageTemplate from "./PageTemplate";
+import AboutUs from "./pages/AboutUs";
+import Contacts from "./pages/Contacts";
 
 
 function Home() {
@@ -29,6 +31,16 @@ function Home() {
                     <Route path="/success/" >
                         <PageTemplate>
                             <PurchaseSuccess />
+                        </PageTemplate>
+                    </Route>
+                    <Route path="/about/" >
+                        <PageTemplate>
+                            <AboutUs />
+                        </PageTemplate>
+                    </Route>
+                    <Route path="/contacts/" >
+                        <PageTemplate>
+                            <Contacts />
                         </PageTemplate>
                     </Route>
                     <Route path="*" >

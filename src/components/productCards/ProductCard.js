@@ -7,7 +7,7 @@ function ProductCard({ product: { id, image, title, category, price, rating} }) 
     const [setCartProducts] = useContext(ShopContex);
 
     return (
-        <div className="py-3 px-5 space-y-3 flex flex-wrap justify-center h-full rounded-2xl bg-neon1-light-2000 hover:bg-neon1-light-900 transform transition hover:scale-102">
+        <div className="py-3 px-5 space-y-3 flex flex-wrap justify-center h-full rounded-2xl bg-gray-200 hover:bg-neon1-light-1000 transform transition hover:scale-102">
             <div className="relative w-full pb-110p">
                 <img className="absolute w-full h-full rounded-xl" src={image} alt="product" />
             </div>
@@ -32,7 +32,7 @@ function ProductCard({ product: { id, image, title, category, price, rating} }) 
                     )
                 }
             </div>
-            <h4 className="bg-neon1-light-1000 px-2 rounded-lg font-bold text-lg text-center w-full h-14 overflow-hidden whitespace-pre-wrap overflow-ellipsis">{title}</h4>
+            <h4 className=" px-2 rounded-lg bg-gray-50 font-bold text-lg text-center w-full h-14 overflow-hidden whitespace-pre-wrap overflow-ellipsis">{title}</h4>
         </div>
     )
 }

@@ -31,8 +31,8 @@ function Navbar() {
                 <h2 onClick={() => history.push('/')} className="cursor-pointer text-night-dark-400 font-bold text-3xl font-serif transition transform hover:scale-105 hover:bg-opacity-80 mr-8">E-Shop</h2>
                 <div className="md:space-x-5 mt-4  flex flex-col md:flex-row w-full md:w-auto md:inline-block">
                     <div className="text-lg inline-block font-semibold my-1 text-night-light-100 bg-night-dark-100 px-2 rounded-md transition transform hover:scale-110 hover:bg-opacity-80"><Link to="/">Products</Link></div>
-                    <div className="text-lg inline-block font-semibold my-1 text-night-light-100 bg-night-dark-100 px-2 rounded-md transition transform hover:scale-110 hover:bg-opacity-80"><Link to="/">About</Link></div>
-                    <div className="text-lg inline-block font-semibold my-1 text-night-light-100 bg-night-dark-100 px-2 rounded-md transition transform hover:scale-110 hover:bg-opacity-80"><Link to="/">Contacts</Link></div>
+                    <div className="text-lg inline-block font-semibold my-1 text-night-light-100 bg-night-dark-100 px-2 rounded-md transition transform hover:scale-110 hover:bg-opacity-80"><Link to="/about/">About</Link></div>
+                    <div className="text-lg inline-block font-semibold my-1 text-night-light-100 bg-night-dark-100 px-2 rounded-md transition transform hover:scale-110 hover:bg-opacity-80"><Link to="/contacts/">Contacts</Link></div>
                 </div>
             </div>
             <button onClick={() => setCartVisible(true)} className="transition transform hover:scale-110 hover:bg-opacity-80 text-3xl mx-2 my-1 bg-night-dark-100 text-night-light-100 px-2 relative rounded-lg justify-self-end" >
