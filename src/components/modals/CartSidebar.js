@@ -26,7 +26,6 @@ function CartSidebar() {
                         Object.values(cartProducts).map((product) => <CartProductCard key={product.id} product={product} />)
                     }
                 </div>
-                <hr className="w-1/2 my-1 border-dotted border-t-8 mx-auto border-gray-400" />
                 <div className="flex flex-col space-y-1 py-2">
                     <button className="transition transform hover:scale-102 hover:bg-opacity-80 font-semibold text-lg sm:text-lg bg-neon1-light-100 mx-2 rounded-lg py-3" onClick={() => { setCartVisible(false); history.push('/checkout/') }}>Proceed To Checkout</button>
                     <div className="flex py-1 px-4 bg-gray-300 rounded-md mx-2">
